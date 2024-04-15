@@ -1,0 +1,5 @@
+CLI
+MAC Address: C0:4E:30:4B:40:26
+
+SER
+MAC Address: C0:4E:30:4B:40:1C
