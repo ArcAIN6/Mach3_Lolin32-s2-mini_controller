@@ -2,20 +2,31 @@
 Mach3 Cycle control box
 
 Required Hardware:
+
 2x Esp32-S2 Mini
+
 3x Momentary Buttons
+
 1x E-Stop Latching Button
 
 Optional Hardware: 
+
 On/Off Rocker Switch.
+
 QI Charging Receiver
+
 LiPo Battery
 
 Required Libraries: 
+
 All part of the ESP32 Package: 
+
 |-esp_now.h
+
 |-WiFi.h
+
 |-USB.h
+
 |-USBHIDKeyboard.h
 
 
