@@ -1,6 +1,24 @@
 # Mach3_Lolin32-s2-mini_controller
 Mach3 Cycle control box
 
+Required Hardware:
+2x Esp32-S2 Mini
+3x Momentary Buttons
+1x E-Stop Latching Button
+
+Optional Hardware: 
+On/Off Rocker Switch.
+QI Charging Receiver
+LiPo Battery
+
+Required Libraries: 
+All part of the ESP32 Package: 
+|-esp_now.h
+|-WiFi.h
+|-USB.h
+|-USBHIDKeyboard.h
+
+
 The goal of this repository is to make life a little easier on those DIY'ers who want a wireless control box for Cycle Start, Cycle Stop, Cycle Pause, and E-Stop buttons. 
 
 Using 2x Esp32-s2 mini's you'll be able to instantly trigger these buttons when pressed on ESP32-s2 Mini, and wirelessly send it to the other ESP32-S2 mini that's acting as an HID device. 
