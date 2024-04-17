@@ -117,7 +117,7 @@ void loop()
   if ((receiverData.switch1Value == HIGH) && (keyState == 0)){
     // E-Stop KEYBOARD COMMAND
     //Keyboard.press(KEY_LEFT_ALT);
-    Keyboard.press('`');
+    Keyboard.press(' ');
     Keyboard.releaseAll();
     keyState =1;
   }
@@ -132,7 +132,8 @@ void loop()
   
     if ((receiverData.switch3Value == HIGH) && (keyState == 0)){
     // Cycle Pause KEYBOARD COMMAND (SPACE)
-    Keyboard.press(' ');
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press('p');
     Keyboard.releaseAll();
     keyState =1;
   }
