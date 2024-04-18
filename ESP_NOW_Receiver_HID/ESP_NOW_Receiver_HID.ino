@@ -12,7 +12,9 @@ int platorm = Windows;
 
 int keyState;
 
-
+unsigned long nowKey;
+unsigned long lastKey = 0;
+#define keyTime 1000 // How long between keypresses so we don't crash Mach3
 
 
 #define SIGNAL_TIMEOUT 1000  // This is signal timeout in milli seconds. We will reset the data if no signal
@@ -114,12 +116,17 @@ void loop()
     mapAndWriteValues();  
   }
 
+  nowKey = millis();
+  if ( nowKey - lastKey > keyTime ) {
   if ((receiverData.switch1Value == HIGH) && (keyState == 0)){
     // E-Stop KEYBOARD COMMAND
     //Keyboard.press(KEY_LEFT_ALT);
     Keyboard.press(' ');
     Keyboard.releaseAll();
-    keyState =1;
+    keyState = 1;
+    lastKey = millis();
+  } else if ((receiverData.switch1Value == LOW) && (keyState == 1)){
+    keyState = 0;
   }
   
   if ((receiverData.switch2Value == HIGH) && (keyState == 0)){
@@ -127,7 +134,10 @@ void loop()
     Keyboard.press(KEY_LEFT_ALT);
     Keyboard.press('s');
     Keyboard.releaseAll();
-    keyState =1;
+    keyState = 1;
+    lastKey = millis();
+  } else if ((receiverData.switch2Value == LOW) && (keyState == 1)){
+    keyState = 0;
   }
   
     if ((receiverData.switch3Value == HIGH) && (keyState == 0)){
@@ -135,7 +145,10 @@ void loop()
     Keyboard.press(KEY_LEFT_ALT);
     Keyboard.press('p');
     Keyboard.releaseAll();
-    keyState =1;
+    keyState = 1;
+    lastKey = millis();
+  } else if ((receiverData.switch3Value == LOW) && (keyState == 1)){
+    keyState = 0;
   }
 
   if ((receiverData.switch4Value == HIGH) && (keyState == 0)){
@@ -143,13 +156,10 @@ void loop()
     Keyboard.press(KEY_LEFT_ALT);
     Keyboard.press('r');
     Keyboard.releaseAll();
-    keyState =1;
+    keyState = 1;
+    lastKey = millis();
+  } else if ((receiverData.switch4Value == LOW) && (keyState == 1)){
+  keyState = 0;
   }
-  
-
-  if ((receiverData.switch1Value == LOW) && (receiverData.switch2Value == LOW) && (receiverData.switch3Value == LOW) && (receiverData.switch4Value == LOW) && (keyState == 1))
-  {
-    keyState = 0;
-  }
-  
+ } 
 }
