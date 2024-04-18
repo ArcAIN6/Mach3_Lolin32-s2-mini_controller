@@ -37,10 +37,16 @@ I purchased the control box with 22mm buttons, and an estop from Amazon, you can
 <p>In order to fully realize a truely wireless solution here, i also incorporated a TP4056 LiPo battery charger, an ON/OFF rocker switch, LiPo 2500mAH battery, and a wireless QI charging receiver. (I used one of those cheap aliexpress QI cellphone usbc plugin types, but i peeled the sticker back, desoldered the USBC FFC, and just wired directly to it)
 
 The way i wired these: </p><br>
-![wiring](https://github.com/ArcAIN6/Mach3_Lolin32-s2-mini_controller/assets/418929/a2f911c2-eb78-4029-9750-974ba45becdf) <br>
+![wiring](https://github.com/ArcAIN6/Mach3_Lolin32-s2-mini_controller/assets/418929/a2f911c2-eb78-4029-9750-974ba45becdf) 
 
-<p>as for the buttons, i daisy-chaned the ground from one button to the next, then to the ground on the ESP32-S2 Mini, then each button was wired to pins 2,3,4,5 respectively.  (See the "Transmitter" file for pin mapping)</p>
-![internals](https://github.com/ArcAIN6/Mach3_Lolin32-s2-mini_controller/assets/418929/f352f12b-f49d-4f38-a1d6-de24256c02ff)
+<br>
+
+<p>as for the buttons, i daisy-chaned the ground from one button to the next, then to the ground on the ESP32-S2 Mini, then each button was wired to pins 2,3,4,5 respectively.  (See the "Transmitter" file for pin mapping)</p><br>
+<p>It is IMPORTANT to keep the battery, or any other metal, or metal containing part seperated from the QI charging coil by at least 10mm. These "sticker" type QI receiver coils oftend don't include a ferrite pad, so they will not work if there's metal near the coils. </p><br>
+
+<li>Internal Image </li><br>
+![internals](https://github.com/ArcAIN6/Mach3_Lolin32-s2-mini_controller/assets/418929/a59c2df0-f2a2-4a1d-975f-373d3bd002e1)
+
 <br>
 <H2>The Receiver ESP32-S2 Mini</H2>
 The Receiver ESP32-S2 Mini doesn't really require much... Just edit your pins if you want LED's, and go.. (Be sure to check your specific Mach3 shortcuts to ensure the keyboard keys match the Mach3 shortcuts)
